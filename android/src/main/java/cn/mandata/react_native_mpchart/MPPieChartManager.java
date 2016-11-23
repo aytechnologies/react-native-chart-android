@@ -22,6 +22,9 @@ import java.util.Random;
 public class MPPieChartManager extends MPPieRadarChartManager {
     private String CLASS_NAME="MPPieChart";
 
+    private Float fontSize;
+    private boolean showPercentage = True;
+
     @Override
     public String getName() {
         return this.CLASS_NAME;
@@ -85,6 +88,17 @@ public class MPPieChartManager extends MPPieRadarChartManager {
         chart.invalidate();
     }
 
+    @ReactProp(name = "fontSize", defaultFloat=14f)
+    public void setFontSize(PieChart chart, float fontSize){
+        this.fontSize = fontSize;
+    }
+
+    @ReactProp(name = "showPercentage", defaultBoolean=True)
+    public void setFontSize(PieChart chart, boolean showPercentage){
+        this.showPercentage = showPercentage;
+    }
+
+
     @ReactProp(name="data")
     public void setData(PieChart chart,ReadableMap rm){
 
@@ -109,9 +123,11 @@ public class MPPieChartManager extends MPPieRadarChartManager {
                 entries.add(be);
             }
             PieDataSet dataSet=new PieDataSet(entries,label);
-            dataSet.setValueFormatter(new PercentFormatter());
-            dataSet.setValueTextSize(14f);
-            dataSet.setValueTextColor(Color.WHITE);
+            if (this.showPercentage){
+                dataSet.setValueFormatter(new PercentFormatter());
+                dataSet.setValueTextSize(this.fontSize);
+                dataSet.setValueTextColor(Color.WHITE);
+            }
             ReadableMap config= map.getMap("config");
             if(config.hasKey("colors")){
                 ReadableArray colorsArray = config.getArray("colors");
