@@ -93,7 +93,7 @@ public class MPPieChartManager extends MPPieRadarChartManager {
         this.fontSize = fontSize;
     }
 
-    @ReactProp(name = "showPercentage", defaultBoolean=True)
+    @ReactProp(name = "showPercentage", defaultBoolean=true)
     public void setFontSize(PieChart chart, boolean showPercentage){
         this.showPercentage = showPercentage;
     }

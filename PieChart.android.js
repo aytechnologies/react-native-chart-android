@@ -42,7 +42,9 @@ PieChart.propTypes = {
     drawSliceText: PropTypes.bool,
     usePercentValues: PropTypes.bool,
     centerText: PropTypes.string,
-    centerTextRadiusPercent: PropTypes.number
+    centerTextRadiusPercent: PropTypes.number,
+    showPercentage: PropTypes.bool,
+    fontSize: PropTypes.number
 }
 
 var MPPieChart = requireNativeComponent('MPPieChart', PieChart);
