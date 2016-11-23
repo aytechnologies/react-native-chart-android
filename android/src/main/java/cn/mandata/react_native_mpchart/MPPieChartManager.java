@@ -23,7 +23,7 @@ public class MPPieChartManager extends MPPieRadarChartManager {
     private String CLASS_NAME="MPPieChart";
 
     private Float fontSize;
-    private boolean showPercentage = True;
+    private boolean showPercentage = true;
 
     @Override
     public String getName() {
